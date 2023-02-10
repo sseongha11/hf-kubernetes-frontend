@@ -1,0 +1,64 @@
+<button style="float: right; margin-bottom: 10px;" mat-fab (click)="createDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+            <ng-container matColumnDef="sno">
+              <th mat-header-cell *matHeaderCellDef> # </th>
+              <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+            </ng-container>
+  
+      <!-- Position Column -->
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="item">
+        <th mat-header-cell *matHeaderCellDef> Item </th>
+        <td mat-cell *matCellDef="let element"> {{element.item}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="owner">
+        <th mat-header-cell *matHeaderCellDef> Data Owner </th>
+        <td mat-cell *matCellDef="let element"> {{element.owner}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="severity">
+          <th mat-header-cell *matHeaderCellDef> Severity </th>
+          <td mat-cell *matCellDef="let element"> {{element.severity}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions </th>
+          <td mat-cell *matCellDef="let row">
+            <button (click)="updateAsset(row)" mat-icon-button matTooltip="Click to Update" class="iconbutton" color="primary">
+                <mat-icon aria-label="Update">edit</mat-icon>
+              </button>
+            <button (click)="deleteAsset(row.ID)"mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn">
+                <mat-icon aria-label="Delete">delete</mat-icon>
+              </button>
+  
+              <button (click)="history(row.ID)"mat-icon-button matTooltip="View History" class="iconbutton" color="warn">
+                <mat-icon aria-label="Link">link</mat-icon>
+              </button>
+          </td>
+        </ng-container>
+  
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+  
