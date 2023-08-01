@@ -30,10 +30,10 @@ export class HttpService {
       }
     }
 
+    console.log(data)
     return this.http.post(`${environment.baseUrl}deleteAsset`, data)
   }
   createAsset(asset: Asset) {
-
     let data = {
       org: "Org1MSP",
       userId: "seongha",
