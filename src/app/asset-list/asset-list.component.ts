@@ -58,7 +58,6 @@ this.getAssets();
       if (result) {
         this.httpService.updateAsset(result).subscribe(data=>{
           this.getAssets()
-          
         });
       }
     });
@@ -72,13 +71,12 @@ this.getAssets();
   }
 
   history(id:string){
- 
-
-   this.httpService.getHistory(id).subscribe(data=>{
-console.log(data);
-     this.dialog.open(HistoryDialogComponent, {
-      width: '500px',
-      data
+    console.log(id)
+    this.httpService.getHistory(id).subscribe(data=>{
+      console.log(data);
+      this.dialog.open(HistoryDialogComponent, {
+        width: '500px',
+        data
     });
    });
 
