@@ -1,7 +1,7 @@
 <ng-container>
-    <h3>Asset History #{{history[0].record.ID}}</h3> 
+    <h3>Asset History #{{history[0].record.ID}}</h3>
  </ng-container>
- 
+
  <ng-container *ngFor="let asset of history">
      <mat-card style="margin: 2px; padding: 2px;">
          <div>
@@ -13,15 +13,15 @@
          <div>
              <span class="bold"> Description: </span> {{asset.record.description}}
          </div>
- 
+
          <div>
              <span class="bold"> Decision Makers: </span>{{asset.record.owner}}
          </div>
- 
+
          <div>
-             <span class="bold"> Severity: </span>{{asset.record.severity}}
+             <span class="bold"> Significance: </span>{{asset.record.severity}}
          </div>
- 
+
          <div>
              <span class="bold"> TxID: </span>{{asset.txId}}
          </div>
@@ -32,6 +32,6 @@
              <span class="bold"> Deleted: </span>{{asset.isDelete}}
          </div>
      </mat-card>
- 
- 
+
+
  </ng-container>
